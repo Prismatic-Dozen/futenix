@@ -111,27 +111,26 @@ export const LandingPage = () => {
             </nav>
 
             <div className="header-actions">
-              <button 
+              <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className="theme-toggle"
                 aria-label="Toggle dark mode"
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
-              <Button 
+              <Button
                 onClick={() => scrollToSection('contact')}
                 className="btn-modern-primary"
               >
                 Contact Us
               </Button>
+              <button
+                className="mobile-toggle"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
             </div>
-
-            <button 
-              className="mobile-toggle"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
       </header>
@@ -140,7 +139,9 @@ export const LandingPage = () => {
       <section id="home" className="hero-modern">
         <div className="container-modern">
           <div className="hero-content-modern">
-            <h1 className="hero-title-modern">{heroData.title}</h1>
+            <div className="hero-logo-container">
+              <img src={isDarkMode ? LogoDark : LogoLight} alt="Futenix Logo" className="hero-logo-svg" />
+            </div>
             <p className="hero-subtitle-modern">{heroData.subtitle}</p>
             <p className="hero-description-modern">{heroData.description}</p>
             <div className="hero-actions">
@@ -167,11 +168,21 @@ export const LandingPage = () => {
           <div className="trust-section">
             <p className="trust-text">Trusted by innovative teams worldwide</p>
             <div className="trust-logos">
-              <div className="trust-logo">Stripe</div>
-              <div className="trust-logo">Shopify</div>
-              <div className="trust-logo">Notion</div>
-              <div className="trust-logo">Linear</div>
-              <div className="trust-logo">Vercel</div>
+              <div className="trust-logo-item">
+                <span className="trust-logo-text">Stripe</span>
+              </div>
+              <div className="trust-logo-item">
+                <span className="trust-logo-text">Shopify</span>
+              </div>
+              <div className="trust-logo-item">
+                <span className="trust-logo-text">Notion</span>
+              </div>
+              <div className="trust-logo-item">
+                <span className="trust-logo-text">Linear</span>
+              </div>
+              <div className="trust-logo-item">
+                <span className="trust-logo-text">Vercel</span>
+              </div>
             </div>
           </div>
         </div>
